@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { withBasePath } from "../lib/withBasePath";
 
 const HeroIntro = dynamic(() => import("./HeroIntro"), { ssr: false, loading: () => null });
 
@@ -45,7 +46,7 @@ const Hero = () => {
       {/* Final-state background: factory photo */}
       <div className="hero-photo" aria-hidden>
         <Image
-          src="/img/476853282_1255270719938276_6191085373006634954_n-1.jpg"
+          src={withBasePath("/img/476853282_1255270719938276_6191085373006634954_n-1.jpg")}
           alt=""
           fill
           priority

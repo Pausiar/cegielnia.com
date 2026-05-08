@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
@@ -24,8 +26,8 @@ const Footer = () => {
             <a href="#historia">Historia</a>
             <a href="#transport">Transport</a>
             <a href="#kontakt">Kontakt</a>
-            <a href="/polityka-prywatnosci">Polityka prywatności</a>
-            <a href="/polityka-cookies">Polityka cookies</a>
+            <Link href="/polityka-prywatnosci">Polityka prywatności</Link>
+            <Link href="/polityka-cookies">Polityka cookies</Link>
           </nav>
         </div>
         <div className="meta">

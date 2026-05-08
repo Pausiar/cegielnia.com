@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
@@ -116,7 +117,7 @@ export default function Page() {
             aktualizacji: <em>[UZUPEŁNIĆ]</em>.
           </p>
 
-          <a className="back-link" href="/">← Wróć na stronę główną</a>
+          <Link className="back-link" href="/">← Wróć na stronę główną</Link>
         </div>
       </main>
       <Footer />

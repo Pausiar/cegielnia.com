@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { withBasePath } from "../lib/withBasePath";
 
 const HeroCanvas = dynamic(() => import("./HeroCanvas"), { ssr: false, loading: () => null });
 
@@ -107,7 +108,7 @@ const HeroIntro = ({ onComplete }: Props) => {
       <div className="hero-intro-sky" />
       <div ref={satRef} className="hero-intro-satellite">
         <Image
-          src="/img/satellite.jpg"
+          src={withBasePath("/img/satellite.jpg")}
           alt=""
           fill
           priority
@@ -121,7 +122,7 @@ const HeroIntro = ({ onComplete }: Props) => {
       </div>
       <div className={`hero-intro-photo ${photoVisible ? "is-visible" : ""}`}>
         <Image
-          src="/img/476853282_1255270719938276_6191085373006634954_n-1.jpg"
+          src={withBasePath("/img/476853282_1255270719938276_6191085373006634954_n-1.jpg")}
           alt="Cegielnia Sośnica — widok z lotu ptaka"
           fill
           priority

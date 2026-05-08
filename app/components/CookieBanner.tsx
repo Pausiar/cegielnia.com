@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -41,7 +42,7 @@ const CookieBanner = () => {
           <p>
             Używamy wyłącznie niezbędnych plików cookies oraz — za Twoją zgodą — plików
             analitycznych, aby ulepszać tę stronę. Szczegóły znajdziesz w{" "}
-            <a href="/polityka-cookies">polityce cookies</a>.
+            <Link href="/polityka-cookies">polityce cookies</Link>.
           </p>
           <button className="reject" onClick={() => decide("rejected")}>
             Tylko niezbędne

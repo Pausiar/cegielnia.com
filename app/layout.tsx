@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
+const siteUrl = process.env.SITE_URL ?? "https://cegielnia.com";
+
 const sans = Inter({
   subsets: ["latin", "latin-ext"],
   display: "swap",
@@ -23,7 +25,7 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://cegielnia.com"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Ceramika Sośnica — cegielnia od 1925 roku",
     template: "%s | Ceramika Sośnica",
@@ -39,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "pl_PL",
-    url: "https://cegielnia.com",
+    url: siteUrl,
     siteName: "Ceramika Sośnica",
     title: "Ceramika Sośnica — cegielnia od 1925 roku",
     description:

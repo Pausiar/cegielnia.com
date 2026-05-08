@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Reveal from "./Reveal";
+import { withBasePath } from "../lib/withBasePath";
 
 const offer = [
   { num: "01", title: "Cegła pełna" },
@@ -75,7 +76,7 @@ const Sections = () => {
             <Reveal>
               <div className="image-frame">
                 <Image
-                  src="/img/cegielnia02.jpg"
+                  src={withBasePath("/img/cegielnia02.jpg")}
                   alt="Cegielnia Sośnica — zakład produkcyjny"
                   fill
                   sizes="(min-width: 880px) 50vw, 100vw"
@@ -145,7 +146,7 @@ const Sections = () => {
                 <Reveal key={src} delay={i * 0.05}>
                   <div className="image-frame">
                     <Image
-                      src={`/img/${src}`}
+                      src={withBasePath(`/img/${src}`)}
                       alt="Realizacje z ceramiką Sośnica"
                       fill
                       sizes="(min-width: 880px) 25vw, 50vw"

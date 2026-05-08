@@ -30,6 +30,31 @@ npm run build
 npm start
 ```
 
+## GitHub Pages
+
+El proyecto queda preparado para export estático en GitHub Pages mediante
+GitHub Actions.
+
+- La exportación estática se activa solo cuando el workflow define
+  `GITHUB_PAGES=true`.
+- En Pages del repositorio, el build usa automáticamente `basePath` con el nombre
+  del repo para que funcione bajo `https://usuario.github.io/nombre-del-repo/`.
+- Los assets públicos (`/img`, `/_next`, etc.) salen prefijados con ese mismo
+  `basePath` en la build de Pages.
+- `next/image` pasa a modo `unoptimized` en esa build, que es el modo compatible
+  con hosting estático sin servidor de imágenes.
+
+### Publicación
+
+1. En GitHub, abre `Settings -> Pages`.
+2. En `Source`, selecciona `GitHub Actions`.
+3. Haz push a `main` o lanza manualmente el workflow `Deploy GitHub Pages`.
+
+### Cambiar a dominio propio
+
+Si más adelante quieres publicar con un dominio propio en Pages, cambia las
+variables `NEXT_PUBLIC_BASE_PATH` y `SITE_URL` del workflow.
+
 ## Estructura
 
 ```
