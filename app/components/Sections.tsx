@@ -142,7 +142,7 @@ const Sections = () => {
               ))}
             </div>
             <div className="gallery" style={{ marginTop: 0 }}>
-              {["img1.png", "amek.jpg", "cegielnia01.jpg"].map((src, i) => (
+              {["img1.png", "amek.jpg", "img2.png"].map((src, i) => (
                 <Reveal key={src} delay={i * 0.05}>
                   <div className="image-frame">
                     <Image
