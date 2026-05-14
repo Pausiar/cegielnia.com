@@ -11,6 +11,7 @@ const nextConfig: NextConfig = {
   assetPrefix: basePath || undefined,
   images: {
     unoptimized: isGitHubPagesBuild,
+    qualities: [75, 92, 95],
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
       { protocol: "https", hostname: "cegielnia.com" },

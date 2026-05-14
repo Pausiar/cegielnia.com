@@ -76,7 +76,7 @@ const Sections = () => {
             <Reveal>
               <div className="image-frame">
                 <Image
-                  src={withBasePath("/img/cegielnia02.jpg")}
+                  src={withBasePath("/img/img2.png")}
                   alt="Cegielnia Sośnica — zakład produkcyjny"
                   fill
                   sizes="(min-width: 880px) 50vw, 100vw"
@@ -142,7 +142,7 @@ const Sections = () => {
               ))}
             </div>
             <div className="gallery" style={{ marginTop: 0 }}>
-              {["amek.jpg", "cegielnia01.jpg", "cegielnia02.jpg"].map((src, i) => (
+              {["img1.png", "amek.jpg", "cegielnia01.jpg"].map((src, i) => (
                 <Reveal key={src} delay={i * 0.05}>
                   <div className="image-frame">
                     <Image

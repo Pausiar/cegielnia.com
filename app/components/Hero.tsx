@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { withBasePath } from "../lib/withBasePath";
 
 const HeroIntro = dynamic(() => import("./HeroIntro"), { ssr: false, loading: () => null });
+const INTRO_PRELOAD_MS = 2000;
 
 const stat = [
   { v: "1925", l: "rok założenia" },
@@ -16,20 +17,72 @@ const stat = [
 
 const SESSION_KEY = "cs-intro-played";
 
+const preloadImage = (src: string) =>
+  new Promise<void>((resolve) => {
+    if (typeof window === "undefined") {
+      resolve();
+      return;
+    }
+
+    const img = new window.Image();
+    let settled = false;
+
+    const finish = () => {
+      if (settled) return;
+      settled = true;
+      resolve();
+    };
+
+    img.onload = finish;
+    img.onerror = finish;
+    img.src = src;
+
+    if (img.complete) {
+      finish();
+      return;
+    }
+
+    if (typeof img.decode === "function") {
+      img.decode().then(finish).catch(finish);
+    }
+  });
+
+const wait = (ms: number) => new Promise<void>((resolve) => window.setTimeout(resolve, ms));
+
 const Hero = () => {
-  // Default: don't render intro until we know it's needed (avoids SSR/hydration mismatch).
   const [introState, setIntroState] = useState<"pending" | "playing" | "done">("pending");
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+
+    let cancelled = false;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const small = window.matchMedia("(max-width: 760px)").matches;
     const played = sessionStorage.getItem(SESSION_KEY) === "1";
-    if (reduced || small || played) {
+
+    if (reduced || played) {
       setIntroState("done");
       return;
     }
-    setIntroState("playing");
+
+    const warmIntro = async () => {
+      await Promise.allSettled([
+        import("./HeroIntro"),
+        import("./HeroCanvas"),
+        preloadImage(withBasePath("/img/satellite.jpg")),
+        preloadImage(withBasePath("/img/476853282_1255270719938276_6191085373006634954_n-1.jpg")),
+        wait(INTRO_PRELOAD_MS),
+      ]);
+
+      if (!cancelled) {
+        setIntroState("playing");
+      }
+    };
+
+    void warmIntro();
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const handleIntroComplete = () => {
@@ -43,6 +96,23 @@ const Hero = () => {
 
   return (
     <section className="hero" id="top">
+      {introState !== "done" && (
+        <div className="hero-boot" aria-hidden>
+          {introState === "pending" && (
+            <div className="hero-loader">
+              <span className="hero-loader-kicker">Ceramika Sośnica</span>
+              <strong className="hero-loader-title">Przygotowujemy lot nad cegielnią</strong>
+              <span className="hero-loader-copy">
+                Ładujemy obrazy i scenę startową, żeby intro ruszyło płynniej.
+              </span>
+              <span className="hero-loader-track">
+                <span className="hero-loader-bar" />
+              </span>
+            </div>
+          )}
+        </div>
+      )}
+
       {/* Final-state background: factory photo */}
       <div className="hero-photo" aria-hidden>
         <Image
