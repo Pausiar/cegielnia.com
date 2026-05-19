@@ -75,10 +75,11 @@ site/
       Reveal.tsx        # framer-motion whileInView wrapper
     polityka-prywatnosci/page.tsx
     polityka-cookies/page.tsx
+  docs/
+    images-needed.md    # listado interno de imágenes que faltan por descargar
   public/
     img/                # imágenes locales
     robots.txt
-    images-needed.md    # listado de imágenes que faltan por descargar
 ```
 
 ## Optimizaciones aplicadas
@@ -105,4 +106,4 @@ site/
 
 ## Imágenes pendientes
 
-Ver `public/images-needed.md`.
+Ver `docs/images-needed.md`.
