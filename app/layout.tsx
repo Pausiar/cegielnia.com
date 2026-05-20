@@ -31,11 +31,11 @@ export const metadata: Metadata = {
     template: "%s | Ceramika Sośnica",
   },
   description:
-    "Cegielnia Sośnica — producent cegły pełnej, gotyckiej, klasztornej i ręcznie formowanej oraz pustaków ściennych i wentylacyjnych. Tradycja od 1925 roku, własne złoża gliny, atestowane wyroby.",
+    "Cegielnia Sośnica — producent cegły pełnej, plakietek licowych ciętych oraz mączki ceglanej i glinianej. Skład opału, usługi transportowe i ładowarek kołowych. Tradycja od 1925 roku, własne złoża gliny, atestowane wyroby.",
   keywords: [
     "cegielnia", "Sośnica", "ceramika budowlana", "cegła pełna",
-    "cegła gotycka", "cegła klasztorna", "cegła ręcznie formowana",
-    "pustaki", "Kąty Wrocławskie",
+    "plakietki licowe cięte", "mączka ceglana", "mączka gliniana",
+    "skład opału", "ładowarki kołowe", "Kąty Wrocławskie",
   ],
   authors: [{ name: "Ceramika Sośnica Sp. z o.o." }],
   openGraph: {

@@ -153,8 +153,8 @@ const Hero = () => {
           transition={{ duration: 0.9, ease: "easeOut", delay: 0.25 }}
         >
           Od 1925 roku Cegielnia „Sośnica” znana jest jako producent najwyższej jakości
-          ceramiki budowlanej. Cegła pełna, gotycka, klasztorna, ręcznie formowana oraz
-          pustaki ścienne i wentylacyjne — produkowane ekologicznie z własnych złóż gliny.
+          ceramiki budowlanej. Cegła pełna, plakietki licowe cięte oraz mączki — ceglana
+          i gliniana — produkowane ekologicznie z własnych złóż gliny.
         </motion.p>
 
         <motion.div
@@ -163,7 +163,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: "easeOut", delay: 0.4 }}
         >
-          <a className="cta" href="#oferta">Zobacz pełną ofertę →</a>
+          <a className="cta" href="#cegielnia">Zobacz pełną ofertę →</a>
           <a className="cta-ghost" href="#historia">Historia firmy</a>
         </motion.div>
 

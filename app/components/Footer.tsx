@@ -21,10 +21,10 @@ const Footer = () => {
             </p>
           </div>
           <nav className="footer-links" aria-label="Stopka">
-            <a href="#oferta">Oferta</a>
-            <a href="#proces">Proces</a>
+            <a href="#cegielnia">Cegielnia</a>
+            <a href="#sklad-opalu">Skład opału</a>
+            <a href="#uslugi">Usługi</a>
             <a href="#historia">Historia</a>
-            <a href="#transport">Transport</a>
             <a href="#kontakt">Kontakt</a>
             <Link href="/polityka-prywatnosci">Polityka prywatności</Link>
             <Link href="/polityka-cookies">Polityka cookies</Link>
