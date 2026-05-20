@@ -596,11 +596,37 @@ body.intro-locked { overflow: hidden; }
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-auto-flow: dense;
   gap: 1rem;
   margin-top: 2.5rem;
 }
 .gallery .image-frame { aspect-ratio: 4 / 3; }
+.gallery .image-frame:nth-child(1),
+.gallery .image-frame:nth-child(2) {
+  grid-column: span 3;
+  aspect-ratio: 3 / 4.25;
+}
+.gallery .image-frame:nth-child(3),
+.gallery .image-frame:nth-child(4),
+.gallery .image-frame:nth-child(5) {
+  grid-column: span 2;
+}
+
+@media (max-width: 879px) {
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .gallery .image-frame,
+  .gallery .image-frame:nth-child(1),
+  .gallery .image-frame:nth-child(2),
+  .gallery .image-frame:nth-child(3),
+  .gallery .image-frame:nth-child(4),
+  .gallery .image-frame:nth-child(5) {
+    grid-column: span 1;
+    aspect-ratio: 4 / 3;
+  }
+}
 
 .timeline { display: flex; flex-direction: column; gap: 1.5rem; }
 .timeline p {
