@@ -233,12 +233,18 @@ const Sections = () => {
               </Reveal>
             </div>
             <div className="gallery" style={{ marginTop: 0 }}>
-              {["img1.png", "amek.jpg", "img2.png"].map((src, i) => (
-                <Reveal key={src} delay={i * 0.05}>
+              {[
+                { src: "book1.png", alt: "Portada książki Sośnica" },
+                { src: "book2.png", alt: "Strona tytułowa książki Sośnica" },
+                { src: "img1.png", alt: "Realizacja cegielni Sośnica" },
+                { src: "amek.jpg", alt: "Dawne zdjęcie z Sośnicy" },
+                { src: "img2.png", alt: "Widok zakładu cegielni Sośnica" },
+              ].map((image, i) => (
+                <Reveal key={image.src} delay={i * 0.05}>
                   <div className="image-frame">
                     <Image
-                      src={withBasePath(`/img/${src}`)}
-                      alt="Realizacje z ceramiką Sośnica"
+                      src={withBasePath(`/img/${image.src}`)}
+                      alt={image.alt}
                       fill
                       sizes="(min-width: 880px) 25vw, 50vw"
                       style={{ objectFit: "cover" }}
